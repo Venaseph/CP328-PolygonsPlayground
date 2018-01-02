@@ -4,7 +4,7 @@ import UIKit
 
 // Main Class for array building later
 class Shape {
-    
+
 }
 
 //Implement the protocol on a Triangle, Square, and Rectangle.
