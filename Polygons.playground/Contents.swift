@@ -2,13 +2,15 @@
 
 import UIKit
 
-// Main Class for array building later
-class Shape {
-
+protocol Polygon {
+    var name: String { get }
+    var sides: Int { get }
+    func perimeter() -> Float
+    func area() -> Float
 }
 
 //Implement the protocol on a Triangle, Square, and Rectangle.
-class Triangle:Shape, Polygon {
+class Triangle:Polygon {
     var a: Float
     var b: Float
     var c: Float
@@ -21,7 +23,7 @@ class Triangle:Shape, Polygon {
         self.c = c
     }
     
-    func perimiter() -> Float {
+    func perimeter() -> Float {
         return a+b+c
     }
     
@@ -33,7 +35,7 @@ class Triangle:Shape, Polygon {
     }
 }
 
-class Square:Shape, Polygon {
+class Square:Polygon {
     var a: Float
     var name: String = "Square"
     var sides: Int = 4
@@ -41,16 +43,16 @@ class Square:Shape, Polygon {
         self.a = a
     }
     
-    func perimiter() -> Float {
+    func perimeter() -> Float {
         return a*4
     }
     
     func area() -> Float {
-        return a*2
+        return a*a
     }
 }
 
-class Rectangle:Shape, Polygon {
+class Rectangle:Polygon {
     var a: Float
     var b: Float
     var name: String = "Rectangle"
@@ -60,27 +62,17 @@ class Rectangle:Shape, Polygon {
         self.b = b
     }
     
-    func perimiter() -> Float {
-        return 2*(a*b)
+    func perimeter() -> Float {
+        return 2*(a+b)
     }
     func area() -> Float {
         return a*b
     }
 }
 
-protocol Polygon {
-    var name: String { get }
-    var sides: Int { get }
-    func perimiter() -> Float
-    func area() -> Float
-}
-
 //MARK: Create Instances of, return array of
-func makeShapes() -> [Shape]{
+func makeShapes() -> [Polygon]{
     let s1 = Triangle(a:3,b:4,c:5)
-    //print(s1.name)
-    //print(s1.perimiter().description)
-    //print(s1.area().description)
     let s2 = Triangle(a:6,b:8,c:10)
     let s3 = Square(a: 15)
     let s4 = Square(a: 25)
@@ -91,9 +83,9 @@ func makeShapes() -> [Shape]{
 }
 
 
-func draw (shapes: [Shape]) {
+func draw (shapes: [Polygon]) {
     shapes.forEach { shape in
-        //print(shape.name)
+        print("\(shape.name) has \(shape.sides). Perimeter is \(shape.perimeter().description). Area is \(shape.area().description).")
     }
 }
 
