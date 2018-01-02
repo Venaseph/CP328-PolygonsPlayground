@@ -77,12 +77,10 @@ protocol Polygon {
 
 //MARK: Create Instances of, return array of
 func makeShapes() -> [Shape]{
-    var shapes = [Shape]()
     let s1 = Triangle(a:3,b:4,c:5)
-    print(s1.name)
-    print(s1.perimiter().description)
-    print(s1.area().description)
-    shapes.append(s1)
+    //print(s1.name)
+    //print(s1.perimiter().description)
+    //print(s1.area().description)
     let s2 = Triangle(a:6,b:8,c:10)
     let s3 = Square(a: 15)
     let s4 = Square(a: 25)
@@ -103,12 +101,13 @@ var shapes = makeShapes()
 draw(shapes: shapes)
 
 
+
+/*
 shapes.forEach { shape in
     
 }
-
-/*
- for (index,item) in shapes.enumerated() {
+ 
+for (index,item) in shapes.enumerated() {
  print("Found \(item) at position \(index)")
  }
  */
