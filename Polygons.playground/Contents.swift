@@ -82,34 +82,21 @@ func makeShapes() -> [Polygon]{
     return [s1,s2,s3,s4,s5,s6]
 }
 
+let shapes = makeShapes()
 
-func draw (shapes: [Polygon]) {
-    shapes.forEach { shape in
-        print("\(shape.name) has \(shape.sides). Perimeter is \(shape.perimeter().description). Area is \(shape.area().description).")
-    }
+func draw (shape: Polygon) {
+    print("\(shape.name) has \(shape.sides). Perimeter is \(shape.perimeter().description). Area is \(shape.area().description).")
 }
 
-var shapes = makeShapes()
-draw(shapes: shapes)
-
-
+shapes.forEach { shape in
+    draw(shape: shape)
+}
 
 /*
-shapes.forEach { shape in
-    
-}
- 
-for (index,item) in shapes.enumerated() {
- print("Found \(item) at position \(index)")
+ func draw (shapes: [Polygon]) {
+ shapes.forEach { shape in
+ print("\(shape.name) has \(shape.sides). Perimeter is \(shape.perimeter().description). Area is \(shape.area().description).")
  }
+ }
+ draw(shapes: shapes)
  */
-
-
-
-
-
-
-
-
-
-
